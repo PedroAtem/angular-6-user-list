@@ -12,10 +12,12 @@
     <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
       <mat-nav-list>
+        <div class="userinfo">
+          {{ userInfo() }}
+        </div>
         <a mat-list-item *ngFor="let route of routes" [class.hidden]="checkAdmin(route.userlevel)" [routerLink]="route.route">
           {{ route.name }}
         </a>
-
         <!-- logout -->
         <a mat-list-item (click)="logout()">
           Logout

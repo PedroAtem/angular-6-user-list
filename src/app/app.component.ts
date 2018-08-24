@@ -52,6 +52,14 @@ export class AppComponent implements OnInit, OnDestroy {
         }
     }
 
+    userInfo() {
+        if (UserService.userInfo) {
+            return UserService.userInfo['name'];
+        } else {
+            return '';
+        }
+    }
+
     logout() {
         this.cookieService.delete('autoLogin');
         this.sidenav.close();

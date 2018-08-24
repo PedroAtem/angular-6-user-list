@@ -20,11 +20,16 @@ mat-list-item:hover {
 
 .search {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
 mat-form-field {
 	margin-top: 20px;
+	width: 80%;
+}
+
+.btn-add {
 	width: 80%;
 }

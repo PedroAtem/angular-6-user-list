@@ -1,34 +1,27 @@
-.container {
-	justify-content: center;
-	align-items: center;
-	padding: 20px;
-	height: 100%;
+form {
+    text-align: center;
 }
 
-p {
-	margin: 0px;
+.item-container {
+    width: 80%;
 }
 
 button {
-	width: 100%;
+    width: 100%;
 }
 
 mat-form-field {
-	width: 100%;
-	color: white;
+    width: 80%;
+    color: white;
 }
 
-.no-padding-top-bottom {
-	padding-top: 0px;
-    padding-bottom: 0px;
-}
-
-h2 {
-	text-align: center;
-    margin-top: 50px;
+.title {
+    margin: 10px;
+    text-align: left;
     font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
 }
 
-p:last-child {
-	margin-bottom: 20px;
+.btn-submit {
+    width: 80%;
+    margin-bottom: 20px;
 }
