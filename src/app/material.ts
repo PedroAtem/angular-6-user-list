@@ -8,7 +8,9 @@ import {
 	MatListModule,
 	MatButtonToggleModule,
 	MatToolbarModule,
-	MatCheckboxModule
+	MatCheckboxModule,
+	MatSelectModule,
+	MatSnackBarModule
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 
@@ -23,7 +25,9 @@ import { NgModule } from '@angular/core';
 		MatListModule,
 		MatButtonToggleModule,
 		MatToolbarModule,
-		MatCheckboxModule
+		MatCheckboxModule,
+		MatSelectModule,
+		MatSnackBarModule
 	],
 	exports: [
 		MatInputModule,
@@ -35,7 +39,9 @@ import { NgModule } from '@angular/core';
 		MatListModule,
 		MatButtonToggleModule,
 		MatToolbarModule,
-		MatCheckboxModule
+		MatCheckboxModule,
+		MatSelectModule,
+		MatSnackBarModule
 	],
 })
 
