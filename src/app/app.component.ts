@@ -33,7 +33,9 @@ export class AppComponent {
 	}
 
 	ngOnInit() {
-		this.userService.checkFirstTime().subscribe(user => this.router.navigate(['/login']));
+		this.userService.checkFirstTime().subscribe(ret => {
+			// this.router.navigate(['/login']);
+		});
 	}
 
 	ngOnDestroy(): void {
@@ -44,9 +46,9 @@ export class AppComponent {
 		return UserService.userInfo;
 	}
 
-	checkRouteUserLevel(userLevel) {
+	checkUserLevel(userLevel) {
 		if (UserService.userInfo) {
-			return !((UserService.userInfo.userlevel & userLevel) == UserService.userInfo.userlevel);
+			return !((Number(UserService.userInfo['userlevel']) & Number(userLevel)) == Number(UserService.userInfo['userlevel']));
 		}
 		else return true;
 	}

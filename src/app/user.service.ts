@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { User } from './model/user';
 import { USERS } from './mock-users';
+import { User } from './model/user';
 import { Md5 } from 'ts-md5/dist/md5';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -24,14 +24,6 @@ export class UserService {
 					username: 'admin',
 					password: '0192023a7bbd73250516f069df18b500',
 					userlevel: '1'
-				},
-				{
-					id: 2,
-					name: 'Usuário',
-					email: 'user@email.com',
-					username: 'user',
-					password: '6ad14ba9986e3615423dfca256d04e3f',
-					userlevel: '2'
 				}
 			]))
 		}
@@ -47,6 +39,10 @@ export class UserService {
 			));
 		});
 		return of(true);
+	}
+
+	checkedLogged(): Observable<boolean> {
+		return of(UserService.userInfo != null);
 	}
 
 	getUsers(): Observable<User[]> {
@@ -83,6 +79,7 @@ export class UserService {
 			newId++;
 
 			user.id = newId;
+			user.password = Md5.hashStr(user.password).toString();
 			USERS.push(user);
 			let cookieAux = JSON.parse(this.cookieService.get('users'));
 			cookieAux.push({
@@ -100,7 +97,7 @@ export class UserService {
 		return of(ret);
 	}
 
-	updateUser(user: User, editedPassword: boolean) {
+	updateUser(user: User, editedPassword: boolean): Observable<Object> {
 		let ret = new Object();
 		let hasUser = USERS.filter(function(existUser) {
 			if (user.id == existUser.id) return existUser;
@@ -125,7 +122,7 @@ export class UserService {
 						_user.email = user.email;
 						_user.userlevel = user.userlevel;
 						if (editedPassword) {
-							_user.password = user.password
+							_user.password = Md5.hashStr(user.password).toString()
 						}
 					}
 				});
@@ -136,6 +133,15 @@ export class UserService {
 			}
 		}
 		return of(ret);
+	}
+
+	removeUser(user: User): Observable<boolean> {
+		var index = USERS.indexOf(user, 0);
+		if (index > -1) {
+			USERS.splice(index, 1);
+		}
+		this.cookieService.set('users', JSON.stringify(USERS));
+		return of(true);
 	}
 
 	logout() {

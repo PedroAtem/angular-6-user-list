@@ -64,6 +64,11 @@ export class AddUserComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.userService.checkedLogged().subscribe(logged => {
+			if (!logged) {
+				this.router.navigate(['/login']);
+			}
+		});
 	}
 
 	insertUpdateUser() {

@@ -3,6 +3,7 @@ import { LoginService } from '../login.service';
 import { UserService } from '../user.service';
 import { User } from '../model/user';
 import { Router, NavigationExtras } from '@angular/router';
+import { AlertService } from '../alert.service';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
 	constructor(
 		private loginService: LoginService,
 		private userService: UserService,
+		private alertService: AlertService,
 		private router: Router
 	) { }
 
@@ -41,6 +43,9 @@ export class LoginComponent implements OnInit {
 					preserveFragment: true
 				};
 				this.router.navigate(['/home'], navigationExtras);
+			}
+			else {
+				this.alertService.showAlert('Could not log in, please check the information', 'OK');
 			}
 		});
 	}

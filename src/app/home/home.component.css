@@ -1,0 +1,30 @@
+mat-list-item:hover {
+	background: rgba(100, 100, 100, 0.4) !important;
+}
+
+.btn-action {
+	margin: 0px 10px;
+}
+
+.btn-edit {
+	order: 1;
+}
+
+.btn-remove {
+	order: 2;
+}
+
+.btn-action mat-icon {
+	padding: 0px !important;
+}
+
+.search {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+mat-form-field {
+	margin-top: 20px;
+	width: 80%;
+}
