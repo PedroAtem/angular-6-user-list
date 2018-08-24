@@ -1,0 +1,28 @@
+<div class="full-height">
+	<div class="container">
+		<div class="item-container">
+			<form (ngSubmit)="login()" #heroForm="ngForm">
+				<mat-list role="list">
+					<mat-list-item role="listitem">
+						<mat-form-field appearance="outline" color="accent">
+							<mat-label>Username</mat-label>
+							<input matInput required placeholder="Username" [(ngModel)]="username" id="username" name="username">
+						</mat-form-field>
+					</mat-list-item>
+					<mat-list-item role="listitem">
+						<mat-form-field appearance="outline" color="accent">
+							<mat-label>Password</mat-label>
+							<input type="password" matInput required placeholder="Password" [(ngModel)]="password" id="password" name="password">
+						</mat-form-field>
+					</mat-list-item>
+					<mat-list-item class="no-padding-top-bottom">
+						<mat-checkbox class="example-margin" [(ngModel)]="autoLogin" name="autoLogin">Stay logged in</mat-checkbox>
+					</mat-list-item>
+					<mat-list-item role="listitem">
+						<button mat-raised-button color="accent" [disabled]="!heroForm.form.valid" type="submit">LOGIN</button>
+					</mat-list-item>
+				</mat-list>
+			</form>
+		</div>
+	</div>
+</div>

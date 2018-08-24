@@ -1,0 +1,31 @@
+.full-height {
+	position: fixed;
+	top: 60px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.container {
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.mat-list-item {
+	padding: 10px;
+}
+
+button {
+	width: 100%;
+}
+
+mat-form-field {
+	width: 100%;
+	color: white;
+}
+
+.no-padding-top-bottom {
+	padding-top: 0px;
+    padding-bottom: 0px;
+}
