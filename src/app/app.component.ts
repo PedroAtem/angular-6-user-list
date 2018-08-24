@@ -16,8 +16,8 @@ export class AppComponent implements OnInit, OnDestroy {
     mobileQuery: MediaQueryList;
     private _mobileQueryListener: () => void;
     routes: Array<any> = [
-        { name: 'Home', route: '/home', userLevel: 3 },
-        { name: 'Add User', route: '/add-user', userLevel: 1 }
+        { name: 'Home', route: '/home', userlevel: [1, 2] },
+        { name: 'Add User', route: '/add-user', userlevel: [1] }
     ];
 
     constructor(
@@ -44,9 +44,9 @@ export class AppComponent implements OnInit, OnDestroy {
         return UserService.userInfo;
     }
 
-    checkAdmin() {
+    checkAdmin(userlevel) {
         if (UserService.userInfo) {
-            return !(Number(UserService.userInfo['userlevel']) === 1);
+            return !(userlevel.indexOf(Number(UserService.userInfo['userlevel'])) !== -1);
         } else {
             return true;
         }
