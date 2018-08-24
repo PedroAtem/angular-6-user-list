@@ -3,7 +3,7 @@
 		<mat-label>Search</mat-label>
 		<input matInput placeholder="Search" [(ngModel)]="search">
 	</mat-form-field>
-	<button class="btn-add" mat-raised-button color="accent" routerLink="/add-user">ADD USER</button>
+	<button class="btn-add" [class.hidden]="checkAdmin()" mat-raised-button color="accent" routerLink="/add-user">ADD USER</button>
 </div>
 
 <mat-list role="list">
