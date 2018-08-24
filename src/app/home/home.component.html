@@ -12,12 +12,12 @@
 		<p matLine>
 			<span>{{ user.email }}</span>
 		</p>
-		<button mat-mini-fab color="warn" class="btn-action btn-remove" [class.hidden]="checkUserLevel(1)" [matMenuTriggerFor]="menu"><mat-icon matListIcon>clear</mat-icon></button>
+		<button mat-mini-fab color="warn" class="btn-action btn-remove" [class.hidden]="checkAdmin()" [matMenuTriggerFor]="menu"><mat-icon matListIcon>clear</mat-icon></button>
 		<mat-menu #menu="matMenu">
 			<button mat-menu-item (click)="removeUser(user)">Remove</button>
 			<button mat-menu-item>Cancel</button>
 		</mat-menu>
-		<button mat-mini-fab color="accent" class="btn-action btn-edit" [class.hidden]="checkUserLevel(1)" (click)="editUser(user)"><mat-icon matListIcon>edit</mat-icon></button>
+		<button mat-mini-fab color="accent" class="btn-action btn-edit" [class.hidden]="checkAdmin()" (click)="editUser(user)"><mat-icon matListIcon>edit</mat-icon></button>
 
 	</mat-list-item>
 </mat-list>
