@@ -1,3 +1,59 @@
-<p>
-  add-user works!
-</p>
+<div class="container">
+	<div class="item-container">
+		<form (ngSubmit)="insertUpdateUser()" #userForm="ngForm">
+			<h2>
+				{{ action == 'add' ? 'Add' : 'Edit' }} user
+			</h2>
+			<p>
+				<mat-form-field appearance="outline" color="accent">
+					<mat-label>Name</mat-label>
+					<input matInput required placeholder="Name" [(ngModel)]="user.name" id="name" name="name">
+					<mat-error *ngIf="nameFormControl.hasError('required')">Name is required</mat-error>
+				</mat-form-field>
+			</p>
+			<p>
+				<mat-form-field appearance="outline" color="accent">
+					<mat-label>Email</mat-label>
+					<input matInput required placeholder="Email" [(ngModel)]="user.email" id="email" name="email">
+					<mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+						Please enter a valid email address
+				    </mat-error>
+				    <mat-error *ngIf="emailFormControl.hasError('required')">Email is required</mat-error>
+				</mat-form-field>
+			</p>
+			<p>
+				<mat-form-field appearance="outline" color="accent">
+					<mat-select [(ngModel)]="user.userlevel" id="userlevel" name="userlevel">
+						<mat-option value="1">Admin</mat-option>
+						<mat-option value="2">User</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</p>
+			<p>
+				<mat-form-field appearance="outline" color="accent">
+					<mat-label>Username</mat-label>
+					<input matInput required placeholder="Username" [(ngModel)]="user.username" id="username" name="username">
+					<mat-error *ngIf="usernameFormControl.hasError('required')">Username is required</mat-error>
+				</mat-form-field>
+			</p>
+			<p>
+				<mat-form-field appearance="outline" color="accent">
+					<mat-label>Password</mat-label>
+					<input type="password" matInput required placeholder="Password" [(ngModel)]="user.password" id="password" name="password">
+					<mat-error *ngIf="passwordFormControl.hasError('required')">Password is required</mat-error>
+				</mat-form-field>
+			</p>
+			<p>
+				<mat-form-field appearance="outline" color="accent">
+					<mat-label>Repeat password</mat-label>
+					<input type="password" matInput required placeholder="Repeat password" [(ngModel)]="user.confirmPassword" id="confirmPassword" name="confirmPassword">
+				</mat-form-field>
+			</p>
+			<p>
+				<button mat-raised-button color="accent" [disabled]="!userForm.form.valid" type="submit">
+					{{ action == 'add' ? 'ADD' : 'UPDATE' }} USER
+				</button>
+			</p>
+		</form>
+	</div>
+</div>
